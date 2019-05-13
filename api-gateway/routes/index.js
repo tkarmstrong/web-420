@@ -1,3 +1,12 @@
+/*
+============================================
+; Title:  index.js
+; Author: Tyler Armstrong
+; Date:   12 May 2019
+; Description: Home page router.
+;===========================================
+*/
+
 var express = require('express');
 var router = express.Router();
 

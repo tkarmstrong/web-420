@@ -1,9 +1,20 @@
+/*
+============================================
+; Title:  Assignment 2.3 - API Gateway Part II
+; Author: Tyler Armstrong
+; Date:   12 May 2019
+; Modified By: N/A
+; Description: Showcases RESTful API
+;===========================================
+*/
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+var apiCatalog = require('./routes/api-catalog');
 
 var indexRouter = require('./routes/index');
 
@@ -24,6 +35,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use('/api', apiCatalog); 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
