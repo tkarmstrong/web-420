@@ -21,9 +21,6 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-app.use('/', indexRouter);
-app.use('/api', apiCatalog); 
-
 // Connect to DB
 const mongoDB = "mongodb+srv://admin:admin@ems-qmc0r.mongodb.net/api-gateway?retryWrites=true";
 mongoose.connect(mongoDB, {
@@ -39,9 +36,9 @@ db.once("open", function() {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
